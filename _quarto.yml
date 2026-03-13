@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "kaxaspace"
+  title: "KAXA"
   navbar:
     left:
       - href: index.qmd
