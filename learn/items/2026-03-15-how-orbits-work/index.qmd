@@ -1,0 +1,16 @@
+---
+title: "How Orbits Work: A Beginner Guide"
+date: 2026-03-15
+author: "KAXA Team"
+categories: [Article, Space Basics]
+description: "A practical introduction to orbits, altitude, speed, and why satellites stay in space."
+image: /image/kaxa-logo-color.png
+---
+
+This learning article explains orbit fundamentals in simple steps:
+
+- Gravity and forward velocity
+- Low Earth orbit vs higher orbits
+- Why satellites do not immediately fall back to Earth
+
+Use this as a starter before exploring mission planning and satellite operations.

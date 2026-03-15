@@ -1,0 +1,17 @@
+---
+title: "Remote Sensing Video Series (Part 1)"
+date: 2026-03-15
+author: "KAXA Team"
+categories: [Video Series, Remote Sensing]
+description: "Episode 1 of a learning series on satellite imagery, data interpretation, and real use cases."
+image: /image/kaxa-logo-color.png
+---
+
+This video-series entry is a placeholder for your first episode.
+
+When ready, you can add:
+
+- An embedded YouTube/Vimeo video
+- Episode objectives
+- Slide links and references
+- Homework or practice tasks

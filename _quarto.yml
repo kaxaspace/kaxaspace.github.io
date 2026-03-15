@@ -16,10 +16,12 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: learn/index.qmd
+        text: Learn
       - href: blog/index.qmd
         text: Blog
   page-footer:
-    left: "KAXA Space Cambodia"
+    left: "KAXA | Cambodia"
     right: "Building a space engineering community in Cambodia"
 
 format:
