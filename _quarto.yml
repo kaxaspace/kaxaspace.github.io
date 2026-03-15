@@ -23,6 +23,7 @@ format:
     theme:
       - flatly
     css: theme-space.css
+    embed-resources: true
     toc: false
 
 editor: visual
