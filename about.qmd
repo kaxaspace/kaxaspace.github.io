@@ -39,29 +39,54 @@ Click any pin to view member profile details.
 ::::
 
 ```{=html}
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-  crossorigin=""
->
-```
-
-```{=html}
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""
-></script>
-```
-
-```{=html}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (typeof L === "undefined") return;
-
+document.addEventListener("DOMContentLoaded", async function () {
   const mapEl = document.getElementById("member-map");
   if (!mapEl) return;
+
+  function loadLeaflet() {
+    if (window.L) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      document.head.appendChild(css);
+
+      const script = document.createElement("script");
+      script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("Leaflet failed to load"));
+      document.body.appendChild(script);
+    });
+  }
+
+  try {
+    await loadLeaflet();
+  } catch (e) {
+    mapEl.innerHTML = '<p style="padding:1rem;color:#6b7280;">Map failed to load. Please refresh the page.</p>';
+    return;
+  }
+
+  const mapWrapEl = mapEl.closest(".member-map-wrap");
+  if (!mapWrapEl) return;
+
+  const sheetEl = document.createElement("div");
+  sheetEl.id = "map-sheet";
+  sheetEl.className = "map-sheet";
+  sheetEl.setAttribute("aria-live", "polite");
+  sheetEl.innerHTML = [
+    '<div class="map-sheet-head">',
+    '<h4 id="map-sheet-title">Country Members</h4>',
+    '<button type="button" id="map-sheet-close" class="map-sheet-close" aria-label="Close member list">Close</button>',
+    "</div>",
+    '<div id="map-sheet-list" class="map-sheet-list"></div>'
+  ].join("");
+  mapWrapEl.appendChild(sheetEl);
+
+  const sheetTitleEl = document.getElementById("map-sheet-title");
+  const sheetListEl = document.getElementById("map-sheet-list");
+  const sheetCloseEl = document.getElementById("map-sheet-close");
+  if (!sheetTitleEl || !sheetListEl || !sheetCloseEl) return;
 
   const map = L.map("member-map", {
     scrollWheelZoom: false,
@@ -121,25 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   countryGroups.forEach((group) => {
-    const listHtml = group.members.map((member) => `
-      <div class="member-item">
-        <img src="${member.photo}" alt="Profile image of ${member.name}" class="member-avatar">
-        <div class="member-meta">
-          <h4>${member.name}</h4>
-          <p class="member-title">${member.title}</p>
-          <p>${member.summary}</p>
-          <p class="member-location">${member.location}</p>
-        </div>
-      </div>
-    `).join("");
-
-    const popup = `
-      <div class="country-popup">
-        <h4>${group.country} <span class="country-count">${group.members.length}</span></h4>
-        <div class="member-list">${listHtml}</div>
-      </div>
-    `;
-
     const icon = L.divIcon({
       className: "country-dot-wrap",
       html: `<span class="country-dot">${group.members.length}</span>`,
@@ -147,9 +153,31 @@ document.addEventListener("DOMContentLoaded", function () {
       iconAnchor: [15, 15]
     });
 
-    L.marker([group.lat, group.lng], { icon }).addTo(map).bindPopup(popup, {
-      maxWidth: 320
+    const marker = L.marker([group.lat, group.lng], { icon }).addTo(map);
+
+    marker.on("click", function () {
+      const listHtml = group.members.map((member) => `
+        <div class="member-item">
+          <img src="${member.photo}" alt="Profile image of ${member.name}" class="member-avatar">
+          <div class="member-meta">
+            <h4>${member.name}</h4>
+            <p class="member-title">${member.title}</p>
+            <p>${member.summary}</p>
+            <p class="member-location">${member.location}</p>
+          </div>
+        </div>
+      `).join("");
+
+      sheetTitleEl.innerHTML = `${group.country} <span class="country-count">${group.members.length}</span>`;
+      sheetListEl.innerHTML = listHtml;
+      sheetEl.classList.add("is-open");
+
+      map.panTo([group.lat, group.lng], { animate: true, duration: 0.35 });
     });
+  });
+
+  sheetCloseEl.addEventListener("click", function () {
+    sheetEl.classList.remove("is-open");
   });
 });
 </script>
