@@ -1,9 +1,29 @@
 ---
-title: "About"
+title: "About Us"
 ---
 
-About this site
+::: hero-panel
+[Why This Matters]{.hero-kicker}
 
-```{r}
-1 + 1
-```
+KAXA Space Cambodia promotes public understanding of space technologies and strengthens the local pipeline of future engineers, researchers, and innovators.
+:::
+
+:::::: grid-cards
+::: theme-card
+### Vision
+
+A Cambodia where young people see science and space technology as an achievable path.
+:::
+
+::: theme-card
+### Approach
+
+Bridge inspiration and practical education through consistent content and events.
+:::
+
+::: theme-card
+### Partnerships
+
+Collaborate with universities, labs, and international professionals to scale impact.
+:::
+::::::

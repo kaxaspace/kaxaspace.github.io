@@ -3,20 +3,27 @@ project:
   output-dir: docs
 
 website:
-  title: "KAXA"
+  title: "KAXA Space Cambodia"
+  search: false
   navbar:
+    background: light
+    pinned: true
+    logo: image/kaxa-logo-color.png
+    title: false
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+  page-footer:
+    left: "KAXA Space Cambodia"
+    right: "Building a space engineering community in Cambodia"
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      - flatly
     css: styles.css
-    toc: true
+    toc: false
 
 editor: visual
 

@@ -1,11 +1,43 @@
 ---
-title: "kaxaspace"
+title: "Space Engineering For Cambodia"
 ---
 
-This is a Quarto website.
+::: hero-panel
+[Mission Platform]{.hero-kicker}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Inspiring Cambodia's next space generation
 
-```{r}
-1 + 1
-```
+This website is designed as a modern public platform for science communication, space education, and community building around space engineering in Cambodia.
+
+<a class="cta-button" href="about.html">Explore the Direction</a>
+:::
+
+:::::: grid-cards
+::: theme-card
+### Public Education
+
+Turn complex space topics into accessible content that is practical, visual, and clear.
+:::
+
+::: theme-card
+### Youth Inspiration
+
+Highlight real pathways in engineering and science for students across Cambodia.
+:::
+
+::: theme-card
+### Community Building
+
+Create a long-term ecosystem through online sharing, offline events, and partnerships.
+:::
+::::::
+
+:::: hero-panel
+## Activity Tracks
+
+Use this site as the central hub for webinars, interview series, blog posts, newsletters, and announcements.
+
+::: chip-row
+[Yearly Webinar]{.chip} [Interview Series]{.chip} [Space Blog]{.chip} [Science Fun Facts]{.chip} [Workshops & Events]{.chip}
+:::
+::::
