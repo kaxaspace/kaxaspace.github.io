@@ -70,6 +70,17 @@ document.addEventListener("DOMContentLoaded", async function () {
   const mapWrapEl = mapEl.closest(".member-map-wrap");
   if (!mapWrapEl) return;
 
+  const continentPanelEl = document.createElement("div");
+  continentPanelEl.className = "map-continent-panel";
+  continentPanelEl.innerHTML = [
+    '<div class="map-continent-head">',
+    '<p class="map-continent-title">Continent Members</p>',
+    '<button type="button" id="map-continent-toggle" class="map-continent-toggle" aria-expanded="false" aria-controls="map-continent-list">Show</button>',
+    "</div>",
+    '<ul id="map-continent-list" class="map-continent-list"></ul>'
+  ].join("");
+  mapWrapEl.appendChild(continentPanelEl);
+
   const sheetEl = document.createElement("div");
   sheetEl.id = "map-sheet";
   sheetEl.className = "map-sheet";
@@ -86,7 +97,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   const sheetTitleEl = document.getElementById("map-sheet-title");
   const sheetListEl = document.getElementById("map-sheet-list");
   const sheetCloseEl = document.getElementById("map-sheet-close");
-  if (!sheetTitleEl || !sheetListEl || !sheetCloseEl) return;
+  const continentListEl = document.getElementById("map-continent-list");
+  const continentToggleEl = document.getElementById("map-continent-toggle");
+  if (!sheetTitleEl || !sheetListEl || !sheetCloseEl || !continentListEl || !continentToggleEl) return;
 
   const map = L.map("member-map", {
     scrollWheelZoom: false,
@@ -106,6 +119,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       title: "Researcher",
       summary: "MSc in Space Systems Engineering. Focused on engineering research and local capacity building.",
       location: "Institute of Technology of Cambodia, Phnom Penh, Cambodia",
+      country: "Cambodia",
+      continent: "Asia",
       lat: 11.5686,
       lng: 104.8909,
       photo: "https://ui-avatars.com/api/?name=Tim+Hoksong&background=1f5cff&color=fff&size=160&bold=true"
@@ -115,6 +130,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       title: "Industrial Engineer Officer",
       summary: "BS in Robotics and Automation Engineering. Works on robotics development in industry.",
       location: "DENSO Cambodia, Phnom Penh, Cambodia",
+      country: "Cambodia",
+      continent: "Asia",
       lat: 11.5564,
       lng: 104.9282,
       photo: "https://ui-avatars.com/api/?name=Ly+Pechvattana&background=00a3ff&color=fff&size=160&bold=true"
@@ -124,6 +141,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       title: "Master Student",
       summary: "Currently studying aserospace engineering at University of Ulsan",
       location: "Ulsan, South Korea",
+      country: "South Korea",
+      continent: "Asia",
       lat: 36.0133,
       lng: 129.3239,
       photo: "https://ui-avatars.com/api/?name=Him+Vanthong&background=4756ff&color=fff&size=160&bold=true"
@@ -133,32 +152,81 @@ document.addEventListener("DOMContentLoaded", async function () {
       title: "Master Student",
       summary: "Currently studying aircraft engineering at Samara University",
       location: "Samara, Russia",
+      country: "Russia",
+      continent: "Europe",
       lat: 53.21200979716291,
       lng: 50.177442284332635,
       photo: "https://ui-avatars.com/api/?name=Him+Vanthong&background=4756ff&color=fff&size=160&bold=true"
     }
   ];
 
-  const countryGroups = [
-    {
-      country: "Cambodia",
-      lat: 12.8,
-      lng: 104.9,
-      members: members.filter((m) => m.location.includes("Cambodia"))
-    },
-    {
-      country: "South Korea",
-      lat: 36.4,
-      lng: 127.9,
-      members: members.filter((m) => m.location.includes("South Korea"))
-    },
-    {
-      country: "Russia",
-      lat: 55.9, 
-      lng: 37.8,
-      members: members.filter((m) => m.location.includes("Russia"))
+  const countryGroups = Array.from(
+    members.reduce((acc, member) => {
+      const key = member.country;
+      const group = acc.get(key) || { country: key, lat: member.lat, lng: member.lng, members: [] };
+      group.members.push(member);
+      if (group.members.length > 1) {
+        group.lat = group.members.reduce((sum, item) => sum + item.lat, 0) / group.members.length;
+        group.lng = group.members.reduce((sum, item) => sum + item.lng, 0) / group.members.length;
+      }
+      acc.set(key, group);
+      return acc;
+    }, new Map()).values()
+  );
+
+  const continents = [
+    { name: "Asia", bounds: [[5, 55], [60, 150]] },
+    { name: "Europe", bounds: [[35, -10], [72, 45]] },
+    { name: "Africa", bounds: [[-35, -20], [38, 52]] },
+    { name: "North America", bounds: [[7, -168], [72, -52]] },
+    { name: "South America", bounds: [[-56, -82], [13, -34]] },
+    { name: "Oceania", bounds: [[-47, 110], [-5, 180]] }
+  ].map((continent) => ({
+    ...continent,
+    count: members.filter((member) => member.continent === continent.name).length
+  }));
+
+  let activeContinentBtn = null;
+  continents.forEach((continent) => {
+    const itemEl = document.createElement("li");
+    const buttonEl = document.createElement("button");
+    buttonEl.type = "button";
+    buttonEl.className = "map-continent-btn";
+    buttonEl.innerHTML = [
+      `<span class="map-continent-name">${continent.name}</span>`,
+      `<span class="map-continent-count">${continent.count}</span>`
+    ].join("");
+    buttonEl.addEventListener("click", function () {
+      map.fitBounds(continent.bounds, {
+        animate: true,
+        duration: 0.85,
+        padding: [26, 26]
+      });
+      sheetEl.classList.remove("is-open");
+      if (activeContinentBtn) activeContinentBtn.classList.remove("is-active");
+      buttonEl.classList.add("is-active");
+      activeContinentBtn = buttonEl;
+    });
+    itemEl.appendChild(buttonEl);
+    continentListEl.appendChild(itemEl);
+  });
+
+  continentPanelEl.classList.add("is-collapsed");
+  continentListEl.setAttribute("hidden", "");
+
+  continentToggleEl.addEventListener("click", function () {
+    const isCollapsed = continentPanelEl.classList.toggle("is-collapsed");
+    if (isCollapsed) {
+      continentListEl.setAttribute("hidden", "");
+      continentToggleEl.textContent = "Show";
+      continentToggleEl.setAttribute("aria-expanded", "false");
+      return;
     }
-  ];
+
+    continentListEl.removeAttribute("hidden");
+    continentToggleEl.textContent = "Hide";
+    continentToggleEl.setAttribute("aria-expanded", "true");
+  });
 
   countryGroups.forEach((group) => {
     const icon = L.divIcon({
