@@ -29,7 +29,7 @@ Collaborate with universities, labs, and international professionals to scale im
 ::::::
 
 ::::: hero-panel
-Our [Global Members Map]{.hero-kicker}
+[Our Global Members Map]{.hero-kicker}
 
 Click any pin to view member profile details.
 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       name: "Mr. Him Vanthong",
-      title: "Student Researcher",
+      title: "Master Student",
       summary: "Currently studying aserospace engineering at University of Ulsan",
       location: "Ulsan, South Korea",
       lat: 36.0133,
