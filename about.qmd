@@ -29,7 +29,7 @@ Collaborate with universities, labs, and international professionals to scale im
 ::::::
 
 ::::: hero-panel
-[Global Members Map]{.hero-kicker}
+Our [Global Members Map]{.hero-kicker}
 
 Click any pin to view member profile details.
 
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       name: "Mr. Him Vanthong",
       title: "Student Researcher",
-      summary: "Currently studying at POSTECH with interests in advanced engineering and applied science.",
-      location: "POSTECH, Pohang, South Korea",
+      summary: "Currently studying aserospace engineering at University of Ulsan",
+      location: "Ulsan, South Korea",
       lat: 36.0133,
       lng: 129.3239,
       photo: "https://ui-avatars.com/api/?name=Him+Vanthong&background=4756ff&color=fff&size=160&bold=true"
