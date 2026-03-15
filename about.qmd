@@ -5,14 +5,14 @@ title: "About Us"
 ::: hero-panel
 [Why This Matters]{.hero-kicker}
 
-KAXA Space Cambodia promotes public understanding of space technologies and strengthens the local pipeline of future engineers, researchers, and innovators.
+KAXA aims to promotes public understanding of space technologies and strengthens the local pipeline of future engineers, researchers, and innovators.
 :::
 
 :::::: grid-cards
 ::: theme-card
 ### Vision
 
-A Cambodia where young people see science and space technology as an achievable path.
+A Cambodia where young people see natural science, aerospace, and space technology as an achievable path.
 :::
 
 ::: theme-card
@@ -127,6 +127,15 @@ document.addEventListener("DOMContentLoaded", async function () {
       lat: 36.0133,
       lng: 129.3239,
       photo: "https://ui-avatars.com/api/?name=Him+Vanthong&background=4756ff&color=fff&size=160&bold=true"
+    },
+    {
+      name: "Mr. Hort Sovanvichea",
+      title: "Master Student",
+      summary: "Currently studying aircraft engineering at Samara University",
+      location: "Samara, Russia",
+      lat: 53.21200979716291,
+      lng: 50.177442284332635,
+      photo: "https://ui-avatars.com/api/?name=Him+Vanthong&background=4756ff&color=fff&size=160&bold=true"
     }
   ];
 
@@ -142,6 +151,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       lat: 36.4,
       lng: 127.9,
       members: members.filter((m) => m.location.includes("South Korea"))
+    },
+    {
+      country: "Russia",
+      lat: 55.9, 
+      lng: 37.8,
+      members: members.filter((m) => m.location.includes("Russia"))
     }
   ];
 
