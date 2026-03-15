@@ -27,3 +27,131 @@ Bridge inspiration and practical education through consistent content and events
 Collaborate with universities, labs, and international professionals to scale impact.
 :::
 ::::::
+
+::::: hero-panel
+[Global Members Map]{.hero-kicker}
+
+Click any pin to view member profile details.
+
+:::: member-map-wrap
+::: {#member-map role="region" aria-label="KAXA member locations map"}
+:::
+::::
+
+```{=html}
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+>
+```
+
+```{=html}
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+```
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof L === "undefined") return;
+
+  const mapEl = document.getElementById("member-map");
+  if (!mapEl) return;
+
+  const map = L.map("member-map", {
+    scrollWheelZoom: false,
+    worldCopyJump: true,
+    zoomControl: false
+  }).setView([16, 110], 3);
+
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
+    maxZoom: 6,
+    minZoom: 2,
+    attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+  }).addTo(map);
+
+  const members = [
+    {
+      name: "Mr. Tim Hoksong",
+      title: "Researcher",
+      summary: "MSc in Space Systems Engineering. Focused on engineering research and local capacity building.",
+      location: "Institute of Technology of Cambodia, Phnom Penh, Cambodia",
+      lat: 11.5686,
+      lng: 104.8909,
+      photo: "https://ui-avatars.com/api/?name=Tim+Hoksong&background=1f5cff&color=fff&size=160&bold=true"
+    },
+    {
+      name: "Mr. Ly Pechvattana",
+      title: "Industrial Engineer Officer",
+      summary: "BS in Robotics and Automation Engineering. Works on robotics development in industry.",
+      location: "DENSO Cambodia, Phnom Penh, Cambodia",
+      lat: 11.5564,
+      lng: 104.9282,
+      photo: "https://ui-avatars.com/api/?name=Ly+Pechvattana&background=00a3ff&color=fff&size=160&bold=true"
+    },
+    {
+      name: "Mr. Him Vanthong",
+      title: "Student Researcher",
+      summary: "Currently studying at POSTECH with interests in advanced engineering and applied science.",
+      location: "POSTECH, Pohang, South Korea",
+      lat: 36.0133,
+      lng: 129.3239,
+      photo: "https://ui-avatars.com/api/?name=Him+Vanthong&background=4756ff&color=fff&size=160&bold=true"
+    }
+  ];
+
+  const countryGroups = [
+    {
+      country: "Cambodia",
+      lat: 12.8,
+      lng: 104.9,
+      members: members.filter((m) => m.location.includes("Cambodia"))
+    },
+    {
+      country: "South Korea",
+      lat: 36.4,
+      lng: 127.9,
+      members: members.filter((m) => m.location.includes("South Korea"))
+    }
+  ];
+
+  countryGroups.forEach((group) => {
+    const listHtml = group.members.map((member) => `
+      <div class="member-item">
+        <img src="${member.photo}" alt="Profile image of ${member.name}" class="member-avatar">
+        <div class="member-meta">
+          <h4>${member.name}</h4>
+          <p class="member-title">${member.title}</p>
+          <p>${member.summary}</p>
+          <p class="member-location">${member.location}</p>
+        </div>
+      </div>
+    `).join("");
+
+    const popup = `
+      <div class="country-popup">
+        <h4>${group.country} <span class="country-count">${group.members.length}</span></h4>
+        <div class="member-list">${listHtml}</div>
+      </div>
+    `;
+
+    const icon = L.divIcon({
+      className: "country-dot-wrap",
+      html: `<span class="country-dot">${group.members.length}</span>`,
+      iconSize: [30, 30],
+      iconAnchor: [15, 15]
+    });
+
+    L.marker([group.lat, group.lng], { icon }).addTo(map).bindPopup(popup, {
+      maxWidth: 320
+    });
+  });
+});
+</script>
+```
+:::::
