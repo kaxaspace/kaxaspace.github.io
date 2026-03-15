@@ -1,0 +1,17 @@
+---
+title: "Welcome to the KAXA Blog"
+date: 2026-03-15
+author: "KAXA Team"
+categories: [Announcement, Community]
+description: "Introducing the KAXA blog and how we will share space engineering knowledge for Cambodia."
+image: /image/kaxa-logo-color.png
+---
+
+This blog shares practical space engineering content, community updates, and learning resources for students and professionals in Cambodia.
+
+Expect upcoming posts on:
+
+- Space mission explainers
+- Student pathways in engineering
+- Tools and skills for aerospace learning
+- News and event highlights from KAXA

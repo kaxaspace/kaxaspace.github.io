@@ -1,0 +1,22 @@
+---
+title: "Blog"
+page-layout: full
+listing:
+  contents: posts
+  type: grid
+  sort: "date desc"
+  image-align: right
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  page-size: 9
+  fields: [image, title, date, categories, reading-time, description]
+---
+
+::: hero-panel
+[KAXA Blog]{.hero-kicker}
+
+# Space stories, updates, and learning journeys
+
+Explore articles from our community. New posts added under `blog/posts/` automatically appear here.
+:::

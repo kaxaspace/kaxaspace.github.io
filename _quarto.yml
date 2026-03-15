@@ -16,6 +16,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: blog/index.qmd
+        text: Blog
   page-footer:
     left: "KAXA Space Cambodia"
     right: "Building a space engineering community in Cambodia"
