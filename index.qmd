@@ -1,15 +1,15 @@
 ---
-title: "Space Engineering For Cambodia"
+title: "Welcome to KAXA"
 ---
 
 ::: hero-panel
 [Mission Platform]{.hero-kicker}
 
-# Inspiring Cambodia's next space generation
+# ទាំងអស់គ្នា​ទៅកាន់លំហ!
 
-This website is designed as a modern public platform for science communication, space education, and community building around space engineering in Cambodia.
+គេហទំព័រនេះបង្កើតឡើង ដើម្បីចងក្រងនិងផ្តល់ចំណេះដឹង បទពិសោធន៍ ដើម្បីលើស្ទូយដល់ការសិក្សាផ្នែកវិទ្យាសាស្រ្តពិត និងវិស្វកម្មលំហនិងអវកាស។
 
-<a class="cta-button" href="about.html">Explore the Direction</a>
+<a class="cta-button" href="about.html">អានបន្ថែម</a>
 :::
 
 :::::: grid-cards
