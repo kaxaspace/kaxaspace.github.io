@@ -10,7 +10,7 @@ website:
   navbar:
     background: light
     pinned: true
-    logo: image/kaxa-logo-color.png
+    logo: image/kaxa-logo-white.png
     title: false
     left:
       - href: index.qmd

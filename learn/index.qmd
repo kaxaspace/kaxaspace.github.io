@@ -13,11 +13,7 @@ listing:
   fields: [image, title, date, categories, reading-time, description]
 ---
 
-::: hero-panel
 [KAXA Learn Hub]{.hero-kicker}
-
-# Learning resources in one place
 
 This page collects learning information, articles/blog posts, and video series.  
 Add new content under `learn/items/` and it will appear here automatically after render.
-:::

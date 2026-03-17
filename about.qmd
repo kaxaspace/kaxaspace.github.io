@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   continentPanelEl.className = "map-continent-panel";
   continentPanelEl.innerHTML = [
     '<div class="map-continent-head">',
-    '<p class="map-continent-title">Continent Members</p>',
+    '<p class="map-continent-title">By Continent</p>',
     '<button type="button" id="map-continent-toggle" class="map-continent-toggle" aria-expanded="false" aria-controls="map-continent-list">Show</button>',
     "</div>",
     '<ul id="map-continent-list" class="map-continent-list"></ul>'
