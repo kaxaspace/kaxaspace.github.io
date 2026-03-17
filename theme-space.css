@@ -411,7 +411,7 @@ li {
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
-  background: #eef4ff;
+  background: #0b121d;
 }
 
 #member-map {
@@ -426,9 +426,9 @@ li {
   z-index: 1100;
   width: min(250px, calc(100% - 1.1rem));
   border: 1px solid var(--line);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 22px rgba(16, 33, 79, 0.16);
+  border-radius: 0;
+  background: rgba(9, 14, 22, 0.92);
+  box-shadow: none;
 }
 
 .map-continent-head {
@@ -445,7 +445,7 @@ li {
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--ink);
+  color: #c7d3e5;
 }
 
 .map-continent-toggle {
@@ -453,10 +453,13 @@ li {
   border: 1px solid var(--line);
   border-radius: 0;
   background: #0d1521;
-  color: var(--ink-soft);
+  color: #b4c0d4;
   padding: 0.2rem 0.48rem;
-  font-size: 0.73rem;
-  font-weight: 600;
+  font-family: var(--ui-font);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .map-continent-list[hidden] {
@@ -477,18 +480,20 @@ li {
   border: 1px solid transparent;
   border-radius: 0;
   background: #101928;
-  color: var(--ink);
+  color: #d9e3f2;
   padding: 0.38rem 0.48rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--body-font);
-  font-size: 0.83rem;
+  font-family: var(--ui-font);
+  font-size: 0.76rem;
   line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .map-continent-btn:hover {
-  background: #152034;
+  background: #18253d;
 }
 
 .map-continent-btn.is-active {
@@ -497,7 +502,7 @@ li {
 }
 
 .map-continent-name {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .map-continent-count {
@@ -508,7 +513,7 @@ li {
   border-radius: 2px;
   align-items: center;
   justify-content: center;
-  font-size: 0.73rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #fff;
   background: #e02424;
@@ -559,10 +564,10 @@ li {
   right: 0.55rem;
   bottom: 0.55rem;
   z-index: 1200;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.96);
+  border-radius: 0;
+  background: rgba(9, 14, 22, 0.95);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 34px rgba(16, 33, 79, 0.18);
+  box-shadow: none;
   transform: translateY(104%);
   opacity: 0;
   pointer-events: none;
@@ -587,8 +592,8 @@ li {
 .map-sheet-head h4 {
   margin: 0;
   font-family: var(--title-font);
-  color: var(--ink);
-  font-size: 1.35rem;
+  color: #d8e3f2;
+  font-size: 1.15rem;
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -598,10 +603,18 @@ li {
   border: 1px solid var(--line);
   border-radius: 0;
   background: #101928;
-  color: var(--ink-soft);
+  color: #b4c0d4;
   padding: 0.24rem 0.58rem;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-family: var(--ui-font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.map-sheet-close:hover {
+  border-color: rgba(255, 59, 48, 0.55);
+  color: #ff8f88;
 }
 
 .map-sheet-list {
@@ -624,7 +637,7 @@ li {
 .member-avatar {
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: 2px;
   border: 1px solid var(--line);
   box-shadow: none;
   flex-shrink: 0;
@@ -635,12 +648,12 @@ li {
   font-family: var(--title-font);
   font-size: 1.1rem;
   line-height: 1.15;
-  color: var(--ink);
+  color: #e0e8f4;
 }
 
 .member-meta p {
   margin: 0 0 0.32rem;
-  color: var(--ink-soft);
+  color: #a1afc4;
   font-size: 0.9rem;
   line-height: 1.45;
 }
@@ -653,6 +666,7 @@ li {
 .member-meta .member-location {
   margin-bottom: 0;
   font-weight: 500;
+  color: #c0ccde;
 }
 
 @media (max-width: 900px) {
