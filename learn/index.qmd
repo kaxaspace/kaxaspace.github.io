@@ -15,5 +15,4 @@ listing:
 
 [KAXA Learn Hub]{.hero-kicker}
 
-This page collects learning information, articles/blog posts, and video series.  
-Add new content under `learn/items/` and it will appear here automatically after render.
+ការសិក្សា គំនិត និងអត្ថបទវិទ្សាសាស្ត្រថ្មីៗនឹងបង្ហោះនៅទំព័រនេះ!

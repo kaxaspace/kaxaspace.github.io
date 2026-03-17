@@ -4198,8 +4198,35 @@ border-color: rgba(255, 59, 48, 0.7);
 box-shadow: 0 0 0 1px rgba(255, 59, 48, 0.35);
 }
 .page-footer {
-border-top: 1px solid var(--line);
-background: #090f18;
+border-top: 1px solid var(--line) !important;
+background: #090f18 !important;
+}
+footer.footer {
+border-top: 1px solid var(--line) !important;
+background: #090f18 !important;
+}
+footer.footer .nav-footer {
+max-width: none !important;
+width: 100%;
+margin: 0 auto;
+background: #090f18 !important;
+padding: 0 !important;
+min-height: 0;
+display: flex;
+align-items: center;
+}
+footer.footer .nav-footer-left,
+footer.footer .nav-footer-center,
+footer.footer .nav-footer-right {
+color: #8c9bb1;
+font-family: var(--ui-font);
+font-size: 0.72rem;
+letter-spacing: 0.03em;
+background: #090f18 !important;
+padding: 0.72rem 1rem;
+min-height: 56px;
+display: flex;
+align-items: center;
 }
 .member-map-wrap {
 position: relative;
@@ -4615,8 +4642,7 @@ word-break: break-word;
 
 
 <p><span class="hero-kicker">KAXA Learn Hub</span></p>
-<p>This page collects learning information, articles/blog posts, and video series.<br>
-Add new content under <code>learn/items/</code> and it will appear here automatically after render.</p>
+<p>ការសិក្សា គំនិត និងអត្ថបទវិទ្សាសាស្ត្រថ្មីៗនឹងបង្ហោះនៅទំព័រនេះ!</p>
 
 
 

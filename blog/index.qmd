@@ -18,5 +18,5 @@ listing:
 
 # Space stories, updates, and learning journeys
 
-Explore articles from our community. New posts added under `blog/posts/` automatically appear here.
+ទទួលយកចំណេះដឹង បទពិសោធន៍ ព័ត៌មានថ្មីពីសមាជិកនិងសមាគមន៍វិស្វកម្មលំហនៅកម្ពុជា!
 :::
