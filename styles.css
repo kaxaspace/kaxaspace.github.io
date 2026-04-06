@@ -9,8 +9,11 @@
   --surface: #ffffff;
   --primary: #155eef;
   --primary-soft: #eaf1ff;
+  --khmer-font: "Noto Sans Khmer";
   --title-font: "Rajdhani", "Noto Sans Khmer", "Segoe UI", sans-serif;
   --body-font: "Space Grotesk", "Noto Sans Khmer", "Segoe UI", sans-serif;
+  --bs-font-sans-serif: "Space Grotesk", "Noto Sans Khmer", "Segoe UI", sans-serif;
+  --bs-body-font-family: "Space Grotesk", "Noto Sans Khmer", "Segoe UI", sans-serif;
 }
 
 body {
@@ -19,6 +22,12 @@ body {
   background:
     radial-gradient(1000px 360px at 80% -10%, rgba(83, 114, 255, 0.15), transparent 60%),
     linear-gradient(180deg, var(--bg-2) 0%, var(--bg-1) 28%, #f8fbff 100%);
+}
+
+:lang(km),
+[lang="km"],
+[lang^="km-"] {
+  font-family: var(--khmer-font), "Segoe UI", sans-serif !important;
 }
 
 .navbar {
