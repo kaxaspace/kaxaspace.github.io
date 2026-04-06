@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap");
 
 :root {
   --bg-0: #080c14;
@@ -10,9 +10,9 @@
   --surface: #0f1827;
   --accent: #ff3b30;
   --accent-soft: rgba(255, 59, 48, 0.14);
-  --title-font: "Syne", "Segoe UI", sans-serif;
-  --body-font: "Space Grotesk", "Segoe UI", sans-serif;
-  --ui-font: "DM Mono", "Consolas", monospace;
+  --title-font: "Syne", "Noto Sans Khmer", "Segoe UI", sans-serif;
+  --body-font: "Space Grotesk", "Noto Sans Khmer", "Segoe UI", sans-serif;
+  --ui-font: "DM Mono", "Noto Sans Khmer", "Consolas", monospace;
 }
 
 body {
@@ -242,7 +242,7 @@ li {
 
 .quarto-listing-container-grid#listing-listing .card-img-top,
 .quarto-listing-container-grid#listing-listing .listing-item-img-placeholder {
-  aspect-ratio: 1200 / 628;
+  aspect-ratio: 19 / 10;
   min-height: 0;
   border-bottom: 1px solid var(--line);
   background-color: #0b121d;
@@ -270,7 +270,7 @@ li {
   display: block;
   width: 100%;
   height: 100% !important;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   opacity: 0.92;
 }
@@ -750,7 +750,7 @@ footer.footer .nav-footer-right {
 
   .quarto-listing-container-grid#listing-listing .card-img-top,
   .quarto-listing-container-grid#listing-listing .listing-item-img-placeholder {
-    aspect-ratio: 1200 / 628;
+    aspect-ratio: 19 / 10;
   }
 
   .quarto-listing-container-grid#listing-listing .post-contents {

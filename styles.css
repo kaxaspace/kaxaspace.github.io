@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap");
 
 :root {
   --bg-1: #f6f9ff;
@@ -9,8 +9,8 @@
   --surface: #ffffff;
   --primary: #155eef;
   --primary-soft: #eaf1ff;
-  --title-font: "Rajdhani", "Segoe UI", sans-serif;
-  --body-font: "Space Grotesk", "Segoe UI", sans-serif;
+  --title-font: "Rajdhani", "Noto Sans Khmer", "Segoe UI", sans-serif;
+  --body-font: "Space Grotesk", "Noto Sans Khmer", "Segoe UI", sans-serif;
 }
 
 body {
